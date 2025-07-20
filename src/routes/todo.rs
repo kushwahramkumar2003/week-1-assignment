@@ -2,10 +2,12 @@ use std::sync::{Arc, Mutex};
 
 use actix_web::web::{Data, Json};
 use actix_web::{HttpResponse, Responder, get, post};
+use assignment_1::todo_app;
 use serde::{Serialize, Deserialize};
 use crate::middleware::UserId;
 use crate::db::Db;
 
+#[todo_app]
 #[derive(Serialize, Deserialize)]
 struct CreateTodoResponse {
     message: String
@@ -16,6 +18,7 @@ struct CreateTodoRequest {
     pub text: String
 }
 
+#[todo_app]
 #[derive(Serialize, Deserialize)]
 struct GetTodosResponse {
     todos: Vec<String>

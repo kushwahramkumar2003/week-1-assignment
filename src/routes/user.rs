@@ -1,22 +1,26 @@
 use std::sync::{Arc, Mutex};
 
 use actix_web::{web::{Data, Json}, HttpResponse, Responder};
+use assignment_1::todo_app;
 use jsonwebtoken::{encode, EncodingKey, Header};
 use serde::{Serialize, Deserialize};
 use actix_web::{post};
 
 use crate::db::{self, UserRole};
 
+#[todo_app]
 #[derive(Serialize, Deserialize)]
 struct GetUsersResponse {
     users: Vec<db::User>
 }
 
+#[todo_app]
 #[derive(Serialize, Deserialize)]
 struct CreateUserResponse {
     id: String
 }
 
+#[todo_app]
 #[derive(Serialize, Deserialize)]
 struct SigninResponse {
     token: String

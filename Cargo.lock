@@ -230,8 +230,11 @@ version = "0.1.0"
 dependencies = [
  "actix-web",
  "jsonwebtoken",
+ "proc-macro2",
+ "quote",
  "serde",
  "serde_json",
+ "syn",
 ]
 
 [[package]]
